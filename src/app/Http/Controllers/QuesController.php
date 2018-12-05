@@ -11,7 +11,7 @@ class QuesController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         //$this->middleware('role:admin');
     }
     /**
@@ -22,7 +22,7 @@ class QuesController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $que = Que::all();
+        $ques = Que::all();
         return view('ques.index', compact('ques', 'q'));
     }
     /**
@@ -43,11 +43,11 @@ class QuesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|unique:Que',
+            'name' => 'required|string|unique:ques',
             'timeout' => 'required|integer',
         ]);
         Que::create($request->all());
-        flash($request->get('title') . ' Que saved.')->success()->important();
+        flash($request->get('name') . ' Que saved.')->success()->important();
         return redirect()->route('ques.index');
     }
     /**
@@ -69,7 +69,7 @@ class QuesController extends Controller
     public function edit($id)
     {
         $que = Que::findOrFail($id);
-        return view('ques.edit', compact('ques'));
+        return view('ques.edit', compact('que'));
     }
     /*
     * Update the specified resource in storage.
@@ -86,7 +86,7 @@ class QuesController extends Controller
             'timeout' => 'required|integer',
         ]);
         $que->update($request->all());
-        flash($request->get('title') . ' Que updated.')->success()->important();
+        flash($request->get('name') . ' Que updated.')->success()->important();
         return redirect()->route('ques.index');
     }
     /**
@@ -98,7 +98,7 @@ class QuesController extends Controller
     public function destroy(Request $request, $id)
     {
         Que::find($id)->delete();
-        flash($request->get('title') . ' Que deleted.')->success()->important();
+        flash($request->get('name') . ' Que deleted.')->success()->important();
         return redirect()->route('ques.index');
     }
 }
