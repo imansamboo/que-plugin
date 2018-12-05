@@ -82,7 +82,7 @@ class QuesController extends Controller
     {
         $que = Que::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|string|unique:Que',
+            'name' => 'required|string',
             'timeout' => 'required|integer',
         ]);
         $que->update($request->all());

@@ -4,7 +4,7 @@
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {!! $errors->has('secret') ? 'has-error' : '' !!}">
+<div class="form-group {!! $errors->has('timeout') ? 'has-error' : '' !!}">
     {!! Form::label('timeout', 'Timeout') !!}
     {!! Form::number('timeout', null, ['class'=>'form-control']) !!}
     {!! $errors->first('timeout', '<p class="help-block">:message</p>') !!}
