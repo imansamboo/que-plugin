@@ -50,7 +50,7 @@ class CallCenterQueProvider extends ServiceProvider
         // Publish views to resources/views/vendor/vendor-name/package-name
         $this->publishes(
             [
-                __DIR__.'/resources/views/ques' => base_path('resources/views/Ques'),
+                __DIR__.'/resources/views/ques' => base_path('resources/views/ques'),
             ]
         );
 

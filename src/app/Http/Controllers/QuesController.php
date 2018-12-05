@@ -22,8 +22,8 @@ class QuesController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $Que = Que::all();
-        return view('Que.index', compact('Que', 'q'));
+        $que = Que::all();
+        return view('ques.index', compact('ques', 'q'));
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +32,7 @@ class QuesController extends Controller
      */
     public function create()
     {
-        return view('Que.create');
+        return view('ques.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -48,7 +48,7 @@ class QuesController extends Controller
         ]);
         Que::create($request->all());
         flash($request->get('title') . ' Que saved.')->success()->important();
-        return redirect()->route('Que.index');
+        return redirect()->route('ques.index');
     }
     /**
      * Display the specified resource.
@@ -68,8 +68,8 @@ class QuesController extends Controller
      */
     public function edit($id)
     {
-        $Que = Que::findOrFail($id);
-        return view('Que.edit', compact('Que'));
+        $que = Que::findOrFail($id);
+        return view('ques.edit', compact('ques'));
     }
     /*
     * Update the specified resource in storage.
@@ -80,14 +80,14 @@ class QuesController extends Controller
     */
     public function update(Request $request, $id)
     {
-        $Que = Que::findOrFail($id);
+        $que = Que::findOrFail($id);
         $this->validate($request, [
             'name' => 'required|string|unique:Que',
             'timeout' => 'required|integer',
         ]);
-        $Que->update($request->all());
+        $que->update($request->all());
         flash($request->get('title') . ' Que updated.')->success()->important();
-        return redirect()->route('Que.index');
+        return redirect()->route('ques.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -99,6 +99,6 @@ class QuesController extends Controller
     {
         Que::find($id)->delete();
         flash($request->get('title') . ' Que deleted.')->success()->important();
-        return redirect()->route('Que.index');
+        return redirect()->route('ques.index');
     }
 }
