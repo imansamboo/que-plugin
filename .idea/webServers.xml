@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e12294e0-2320-4ee8-b58b-00c8e37c9111" name="172.17.106.203" url="http://172.17.106.203">
+        <fileTransfer host="172.17.106.203" port="22" rootFolder="/var/www/html/laravel/Ipcc" accessType="SFTP" password="dfdadfcbdfd8dfd9dfdadfc5dfc5dfd3dfcfdfd9dfc2" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,24 @@
+{
+    "name": "imansamboo/call-center-que",
+    "version": "1.0.0",
+    "description": "this plugin provided for call center que",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "m.jafari",
+            "email": "imansamboo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "PPF\\Ques\\": "src/"
+        }
+    }
+}
